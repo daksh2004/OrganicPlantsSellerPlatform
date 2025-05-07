@@ -1,0 +1,410 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Haven</title>
+    <link rel="icon" type="image/png" href="Nature Haven.png">
+
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Hero Section with Parallax */
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .options button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background: green;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .options button:hover {
+            background: darkgreen;
+        }
+
+        /* Floating Leaves Effect */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .leaf {
+            position: absolute;
+            width: 50px;
+            opacity: 0.7;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Featured Plants Section */
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .plant-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .plant-card:hover {
+            transform: scale(1.05);
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* NGO Section */
+        .ngo-section {
+            text-align: center;
+            padding: 50px;
+            background: #2c5e1a;
+            color: white;
+        }
+
+        .ngo-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .login-modal input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .login-modal button {
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-modal button:hover {
+            background: darkgreen;
+        }
+
+        /* Close Button for Modal */
+.close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Discover the Beauty of Nature</h1>
+            <p>Your journey to greenery starts here.</p>
+            <div class="options">
+                <button onclick="redirectTo('shop')">Shop</button>
+                <button onclick="redirectTo('ngo')">NGO</button>
+                <button onclick="redirectTo('login')">Login & Registration</button>
+                <button onclick="redirectTo('about')">About Us</button>
+                <button onclick="redirectTo('contact')">Contact Us</button>
+            </div>
+        </div>
+    </section>
+
+<!-- Featured Plants Section -->
+<div class="plant-grid">
+
+    <div class="plant-card">
+        <img src="Mango Tree.jpg" alt="Mango Tree">
+        <h3>Mango Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Neem Tree.jpg" alt="Neem Tree">
+        <h3>Neem Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Pine Tree.jpg" alt="Pine Tree">
+        <h3>Pine Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Coconut Tree.jpg" alt="Coconut Tree">
+        <h3>Coconut Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Cherry Blossom.jpg" alt="Cherry Blossom">
+        <h3>Cherry Blossom</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Palm Tree.jpg" alt="Palm Tree">
+        <h3>Palm Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Bonsai Tree.jpg" alt="Bonsai Tree">
+        <h3>Bonsai Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Cactus.jpg" alt="Cactus">
+        <h3>Cactus</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Ferns.jpg" alt="Ferns">
+        <h3>Ferns</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Orchids.jpg" alt="Orchids">
+        <h3>Orchids</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Venus Flytrap.jpg" alt="Venus Flytrap">
+        <h3>Venus Flytrap</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Rubber Plant.jpg" alt="Rubber Plant">
+        <h3>Rubber Plant</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Aloe Vera.jpg" alt="Aloe Vera">
+        <h3>Aloe Vera</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Lavender.jpg" alt="Lavender">
+        <h3>Lavender</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Hibiscus.jpg" alt="Hibiscus">
+        <h3>Hibiscus</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Banana Tree.jpg" alt="Banana Tree">
+        <h3>Banana Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Sunflower.jpg" alt="Sunflower">
+        <h3>Sunflower</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Pepper Plant.jpg" alt="Pepper Plant">
+        <h3>Pepper Plant</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Basil.jpg" alt="Basil">
+        <h3>Basil</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Eucalyptus.jpg" alt="Eucalyptus">
+        <h3>Eucalyptus</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Spruce Tree.jpg" alt="Spruce Tree">
+        <h3>Spruce Tree</h3>
+    </div>
+
+    <div class="plant-card">
+        <img src="Oak Tree.jpg" alt="Oak Tree">
+        <h3>Oak Tree</h3>
+    </div>
+
+</div>
+
+
+    <!-- NGO Section -->
+    <section class="ngo-section" id="ngo-section">
+        <h2>Our Mission: Reforestation</h2>
+        <p>We plant trees, restore forests, and empower communities.</p>
+        <div class="ngo-stats">
+            <div>
+                <h3>1M+</h3>
+                <p>Trees Planted</p>
+            </div>
+            <div>
+                <h3>500+</h3>
+                <p>Volunteers</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <span class="close" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px;">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+
+
+        <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("loginModal");
+        const openLogin = document.getElementById("openLogin");
+        const closeModal = document.querySelector(".close");
+        const loginForm = document.getElementById("loginForm");
+
+        // Open modal if button clicked (optional - handled by redirectTo)
+        if (openLogin) {
+            openLogin.addEventListener("click", () => {
+                modal.style.display = "flex";
+            });
+        }
+
+        // Close modal when clicking X
+        if (closeModal) {
+            closeModal.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+        }
+
+        // Close modal on outside click
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+
+        // Login form submission
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = loginForm.querySelector("input[type='email']").value;
+            const password = loginForm.querySelector("input[type='password']").value;
+
+            fetch("http://localhost:8081/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Network response was not ok");
+                return res.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert("Login successful!");
+                    window.location.href = "../homepage/homepage.html";
+                } else {
+                    alert("Login failed. Try again.");
+                }
+            })
+            .catch(err => console.error("Error:", err));
+        });
+    });
+
+    // Modified redirectTo
+    function redirectTo(page) {
+        switch(page) {
+            case 'shop':
+                window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html';
+                break;
+            case 'ngo':
+                window.location.href = 'file:///E:/NatureHaven/NGO/NGOpage.html';
+                break;
+            case 'login':
+                document.getElementById('loginModal').style.display = 'flex';
+                return;
+            case 'about':
+                window.location.href = 'file:///E:/NatureHaven/homepage/aboutaspage/about.html#';
+                break;
+            case 'contact':
+                window.location.href = 'file:///E:/NatureHaven/homepage/contectpage/contact.html';
+                break;
+        }
+    }
+
+    </script>
+</body>
+</html>

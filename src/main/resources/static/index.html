@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Theme Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<nav class="navbar">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><button id="openLogin">Login</button></li>
+    </ul>
+</nav>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" placeholder="Email" required>
+                <span class="icon">✉️</span>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <span class="icon">🔒</span>
+            </div>
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <p class="register-link">Don't have an account? <a href="#" id="openRegister">Register</a></p>
+
+        </form>
+
+    </div>
+</div>
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeRegister">&times;</span>
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <input type="text" id="regName" placeholder="Full Name" required>
+                <span class="icon">👤</span>
+            </div>
+            <div class="input-group">
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <span class="icon">✉️</span>
+            </div>
+            <div class="input-group">
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <span class="icon">🔒</span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="regAddress" placeholder="Address" required>
+                <span class="icon">🏡</span>
+            </div>
+            <div class="input-group">
+                <select id="regRole" required>
+                    <option value="">Select Role</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <button type="submit" class="login-btn">Register</button>
+            <p class="register-link">Already have an account? <a href="#" id="toLogin">Login</a></p>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
